@@ -2,7 +2,7 @@
 This is a plugin for Mod Organizer 2 that allows for virtualization of LOOT
 config files. This makes it possible to have instance-specific LOOT configs,
 which are respected by the Sort button in Mod Organizer. You can use this to
-ship your LOOT config with a (Wabbajack)[https://www.wabbajack.org/] modlist
+ship your LOOT config with a [Wabbajack](https://www.wabbajack.org/) modlist
 and have it work automatically when the list is installed.
 
 ## Installation
