@@ -24,7 +24,7 @@ class LOOTConfigMapper(IPluginFileMapper):
 
     def init(self, organizer: "IOrganizer") -> bool:
         self.organizer = organizer
-        organizer.onUserInterfaceInitialized(self.setup_paths)
+        organizer.onUserInterfaceInitialized(self.finish_init)
         return True
 
     def name(self) -> str:
@@ -38,7 +38,7 @@ class LOOTConfigMapper(IPluginFileMapper):
 
     def mappings(self) -> List["Mapping"]:
         mappings = []
-        mappings.append(self.get_loot_mapping())
+        mappings.append(self.make_loot_mapping())
 
         return mappings
 
@@ -48,7 +48,7 @@ class LOOTConfigMapper(IPluginFileMapper):
     def get_destination_path(self) -> str:
         return os.path.join(os.environ["LOCALAPPDATA"], "LOOT")
 
-    def get_loot_mapping(self) -> "Mapping":
+    def make_loot_mapping(self) -> "Mapping":
         source = self.get_source_path()
         destination = self.get_destination_path()
         return Mapping(source,
@@ -56,7 +56,7 @@ class LOOTConfigMapper(IPluginFileMapper):
                        is_directory=True,
                        create_target=False)
 
-    def setup_paths(self, window: QMainWindow) -> None:
+    def finish_init(self, window: QMainWindow) -> None:
         source = self.get_source_path()
         os.makedirs(source, exist_ok=True)
 
