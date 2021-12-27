@@ -1,5 +1,5 @@
 import os
-from typing import List, Optional
+from typing import List
 from mobase import (
     IOrganizer,
     IPluginFileMapper,
@@ -12,6 +12,7 @@ from PyQt5.QtWidgets import QMainWindow
 
 
 class LOOTConfigMapper(IPluginFileMapper):
+
     def __init__(self):
         super().__init__()
 
@@ -37,9 +38,7 @@ class LOOTConfigMapper(IPluginFileMapper):
 
     def mappings(self) -> List["Mapping"]:
         mappings = []
-        loot_mapping = self.get_loot_mapping()
-        if loot_mapping:
-            mappings.append(loot_mapping)
+        mappings.append(self.get_loot_mapping())
 
         return mappings
 
@@ -47,28 +46,20 @@ class LOOTConfigMapper(IPluginFileMapper):
         return os.path.join(self.organizer.basePath(), "LOOT Config Files")
 
     def get_destination_path(self) -> str:
-        localappdata = os.getenv("LOCALAPPDATA")
-        if not localappdata:
-            return ""
+        return os.path.join(os.environ["LOCALAPPDATA"], "LOOT")
 
-        return os.path.join(localappdata, "LOOT")
-
-    def get_loot_mapping(self) -> Optional["Mapping"]:
+    def get_loot_mapping(self) -> "Mapping":
         source = self.get_source_path()
         destination = self.get_destination_path()
-
-        if destination:
-            return Mapping(source, destination, True, False)
-        else:
-            return None
+        return Mapping(source,
+                       destination,
+                       is_directory=True,
+                       create_target=False)
 
     def setup_paths(self, window: QMainWindow) -> None:
         source = self.get_source_path()
-        if not os.path.exists(source):
-            os.mkdir(source)
+        os.makedirs(source, exist_ok=True)
 
         destination = self.get_destination_path()
-
-        if destination:
-            game_name = self.organizer.managedGame().gameName()
-            os.makedirs(os.path.join(destination, game_name), exist_ok=True)
+        game_name = self.organizer.managedGame().gameName()
+        os.makedirs(os.path.join(destination, game_name), exist_ok=True)
