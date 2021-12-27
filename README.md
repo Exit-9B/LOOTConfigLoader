@@ -10,7 +10,7 @@ work automatically when the list is installed.
 Extract the `lootconfigloader` folder to the Mod Organizer plugins folder.
 
 The resulting folder hierarchy should be
-`ModOrganizer\plugins\lootconfigloader`, with the python scripts inside it.
+`MO2DIR\plugins\lootconfigloader`, with the python scripts inside it.
 
 ## Usage
 When you first start Mod Organizer with the plugin installed, it should create
