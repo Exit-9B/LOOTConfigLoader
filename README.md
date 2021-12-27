@@ -8,13 +8,15 @@ and have it work automatically when the list is installed.
 ## Installation
 Extract the `lootconfigloader` folder to the Mod Organizer plugins folder.
 
-The resulting folder hierarchy should be `$MO2Dir\plugins\lootconfigloader`,
-with the python scripts inside it.
+The resulting folder hierarchy should be
+`ModOrganizer\plugins\lootconfigloader`, with the python scripts inside it.
 
 ## Usage
 When you first start Mod Organizer with the plugin installed, it should create
 a folder called `LOOT Config Files` in your instance. Any files you place here
-will be virtualized to `%LOCALAPPDATA%\LOOT`.
+will be virtualized to `%LOCALAPPDATA%\LOOT`. Typically, you would add
+`settings.toml` and `<game_name>\userlist.yaml` here. Make sure your settings
+don't contain any private personal information if you will be sharing them!
 
 ### Removing the masterlist
 Mod Organizer will complain if you try to blank out the masterlist repository,
