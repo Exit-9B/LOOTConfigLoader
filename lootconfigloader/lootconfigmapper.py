@@ -1,16 +1,14 @@
-from genericpath import exists
-from PyQt5.QtWidgets import QMainWindow
-from mobase import (
-    IPluginFileMapper,
-    IOrganizer,
-    PluginSetting,
-    VersionInfo,
-    ReleaseType,
-    Mapping,
-)
-from PyQt5 import QtCore
-from typing import List, Optional
 import os
+from typing import List, Optional
+from mobase import (
+    IOrganizer,
+    IPluginFileMapper,
+    Mapping,
+    PluginSetting,
+    ReleaseType,
+    VersionInfo,
+)
+from PyQt5.QtWidgets import QMainWindow
 
 
 class LOOTConfigMapper(IPluginFileMapper):
