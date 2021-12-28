@@ -20,7 +20,7 @@ class LOOTConfigMapper(IPluginFileMapper):
         return "Parapets"
 
     def description(self) -> str:
-        return "Manages LOOT configs"
+        return "Allows for instance-specific LOOT configs"
 
     def init(self, organizer: "IOrganizer") -> bool:
         self.organizer = organizer
@@ -34,7 +34,7 @@ class LOOTConfigMapper(IPluginFileMapper):
         return []
 
     def version(self) -> "VersionInfo":
-        return VersionInfo(1, 0, 0, 0, ReleaseType.BETA)
+        return VersionInfo(1, 0, 0, 0, ReleaseType.FINAL)
 
     def mappings(self) -> List["Mapping"]:
         mappings = []

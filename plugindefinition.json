@@ -1,0 +1,25 @@
+{
+    "Name": "LOOT Config Loader",
+    "Author": "Parapets",
+    "Description": "Allows for instance-specific LOOT configs",
+    "DocsUrl": "https://github.com/Exit-9B/LOOTConfigLoader/blob/main/README.md",
+    "GithubUrl": "https://github.com/Exit-9B/LOOTConfigLoader",
+    "NexusUrl": "https://www.nexusmods.com/skyrimspecialedition/mods/60864",
+    "Versions": [
+        {
+            "Version": "1.0.0.0",
+            "Released": "2021-12-27",
+            "MinSupport": "2.4.3",
+            "MaxSupport": "2.4.4",
+            "MinWorking": "2.3.0rc1",
+            "MaxWorking": "",
+            "DownloadUrl": "https://github.com/Exit-9B/LOOTConfigLoader/releases/download/v1.0.0/LOOTConfigLoader-v1.0.0.zip",
+            "PluginPath": [
+                "lootconfigloader"
+            ],
+            "LocalePath": [],
+            "DataPath": [],
+            "ReleaseNotes": []
+        }
+    ]
+}
