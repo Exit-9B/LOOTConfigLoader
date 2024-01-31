@@ -8,11 +8,14 @@ from mobase import (
     ReleaseType,
     VersionInfo,
 )
-from PyQt5.QtWidgets import QMainWindow
+
+try:
+    from PyQt5.QtWidgets import QMainWindow
+except ImportError:
+    from PyQt6.QtWidgets import QMainWindow
 
 
 class LOOTConfigMapper(IPluginFileMapper):
-
     def __init__(self):
         super().__init__()
 
@@ -51,10 +54,7 @@ class LOOTConfigMapper(IPluginFileMapper):
     def make_loot_mapping(self) -> "Mapping":
         source = self.get_source_path()
         destination = self.get_destination_path()
-        return Mapping(source,
-                       destination,
-                       is_directory=True,
-                       create_target=False)
+        return Mapping(source, destination, is_directory=True, create_target=False)
 
     def finish_init(self, window: QMainWindow) -> None:
         source = self.get_source_path()
@@ -62,4 +62,7 @@ class LOOTConfigMapper(IPluginFileMapper):
 
         destination = self.get_destination_path()
         game_name = self.organizer.managedGame().gameName()
-        os.makedirs(os.path.join(destination, game_name), exist_ok=True)
+        os.makedirs(
+            os.path.join(os.path.join(destination, "games"), game_name),
+            exist_ok=True,
+        )
